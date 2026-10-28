@@ -7,3 +7,12 @@ Les deux ratios les plus fondamentaux pour décrire le risque d’un prêt sont 
 Le ratio loan to value (LTV) compare le montant du prêt à la valeur du bien. Il est essentiel pour estimer combien l’investisseur pourrait récupérer si l’emprunteur faisait défaut et cessait de payer. Dans ce cas, l’investisseur pourrait saisir le bien et le vendre pour tenter de récupérer le montant du prêt.
 
 Le ratio debt to income (DTI) compare les paiements de dette mensuels au revenu mensuel, et indique à l’investisseur la capacité de l’emprunteur à rembourser le prêt. En général, les investisseurs n’aiment pas voir ce ratio dépasser 50 %, car cela impliquerait que 50 % du revenu brut de l’emprunteur est consacré uniquement au service de la dette. Cela laisse peu de marge pour d’autres dépenses comme les factures d’énergie, les courses ou les impôts.
+
+Ajout du dataset loan_balance
+
+Pour ce cas pratique, la date du jour est le 21 septembre 2021. En général, une opération prend du temps : les acheteurs examinent les données de prêts, réalisent des analyses financières et les contrats sont signés. Nous viserons donc le 13 octobre 2021 comme date de règlement. La date de règlement est le jour où la transaction a lieu : tout est finalisé et le prêteur cède ses prêts aux institutions financières.
+
+Comme l’opération se règle le mois suivant, certains emprunteurs devront effectuer leur paiement hypothécaire d’octobre. Nous allons donc faire quelques calculs pour déterminer le solde principal planifié de chaque prêt le mois prochain.
+
+Nous pouvons le faire avec la fonction PPMT(), qui calcule la part de principal dans le paiement, puis la soustraire du solde actuel du prêt. Point marquant le taux d'intéret est annuel il faut le diviser par 12 afin d'avoir un taux mensuel pour la formule PPMT, d'ailleurs les 2 derniers paramètres ont pour valeurs 0 ( l'objectif à atteindre à la fin du pret comme dette et parce que le paiement des mensualités s'effectue à la fin de la période mensuelles)
+
